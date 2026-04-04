@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Freedom — Trading Bot Command Center</title>
+    <style>
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #111827;
+            --bg-card: #1a2332;
+            --bg-card-hover: #1e2a3a;
+            --border: #2a3545;
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --green: #22c55e;
+            --green-dim: rgba(34, 197, 94, 0.15);
+            --red: #ef4444;
+            --red-dim: rgba(239, 68, 68, 0.15);
+            --yellow: #eab308;
+            --yellow-dim: rgba(234, 179, 8, 0.15);
+            --blue: #3b82f6;
+            --blue-dim: rgba(59, 130, 246, 0.15);
+            --purple: #a855f7;
+            --purple-dim: rgba(168, 85, 247, 0.15);
+            --cyan: #06b6d4;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', monospace;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 30px 0 20px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 24px;
+        }
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, var(--green), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .header .subtitle {
+            color: var(--text-muted);
+            font-size: 13px;
+            margin-top: 6px;
+        }
+        .meta-bar {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 14px;
+            flex-wrap: wrap;
+        }
+        .meta-item {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        .meta-item span {
+            color: var(--text-muted);
+        }
+
+        /* Alert Banner */
+        .alerts-bar {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            font-size: 12px;
+            max-height: 120px;
+            overflow-y: auto;
+        }
+        .alert-item {
+            padding: 4px 0;
+            display: flex;
+            gap: 8px;
+            align-items: baseline;
+        }
+        .alert-item .alert-time { color: var(--text-muted); white-space: nowrap; }
+        .alert-item.info .alert-icon { color: var(--blue); }
+        .alert-item.warning .alert-icon { color: var(--yellow); }
+        .alert-item.error .alert-icon { color: var(--red); }
+
+        /* Summary Cards Row */
+        .summary-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .summary-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px;
+            text-align: center;
+        }
+        .summary-card .label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .summary-card .value {
+            font-size: 26px;
+            font-weight: 700;
+            margin-top: 4px;
+        }
+        .summary-card .detail {
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+        .positive { color: var(--green); }
+        .negative { color: var(--red); }
+        .neutral { color: var(--text-secondary); }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 28px 0 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section-title .icon { font-size: 18px; }
+
+        /* Bot Grid */
+        .bot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .bot-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: border-color 0.2s;
+        }
+        .bot-card:hover { border-color: var(--text-muted); }
+
+        .bot-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+        }
+        .bot-name {
+            font-size: 15px;
+            font-weight: 600;
+        }
+        .bot-badge {
+            font-size: 11px;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .badge-running { background: var(--green-dim); color: var(--green); border: 1px solid rgba(34,197,94,0.3); }
+        .badge-stopped { background: var(--red-dim); color: var(--red); border: 1px solid rgba(239,68,68,0.3); }
+
+        .bot-body { padding: 14px 16px; }
+
+        .bot-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .bot-stat {
+            background: var(--bg-secondary);
+            border-radius: 6px;
+            padding: 8px;
+            text-align: center;
+        }
+        .bot-stat .stat-label {
+            font-size: 10px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .bot-stat .stat-value {
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        /* Probability bars */
+        .prob-section { margin-top: 10px; }
+        .prob-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 5px;
+            font-size: 12px;
+        }
+        .prob-label {
+            width: 110px;
+            color: var(--text-secondary);
+            text-align: right;
+            flex-shrink: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .prob-bar-bg {
+            flex: 1;
+            height: 16px;
+            background: var(--bg-secondary);
+            border-radius: 3px;
+            overflow: hidden;
+            position: relative;
+        }
+        .prob-bar-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+        .prob-value {
+            width: 48px;
+            text-align: right;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        /* Trades */
+        .trades-section { margin-top: 12px; }
+        .trades-title {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+        .trade-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 8px;
+            margin-bottom: 3px;
+            border-radius: 4px;
+            font-size: 11px;
+        }
+        .trade-win { background: var(--green-dim); }
+        .trade-loss { background: var(--red-dim); }
+        .trade-direction {
+            font-weight: 600;
+            width: 50px;
+        }
+        .trade-model { color: var(--text-secondary); width: 100px; }
+        .trade-prices { color: var(--text-secondary); }
+        .trade-pnl { font-weight: 600; width: 70px; text-align: right; }
+        .trade-reason { color: var(--text-muted); font-size: 10px; width: 90px; text-align: right; }
+
+        /* Open positions */
+        .position-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 8px;
+            margin-bottom: 3px;
+            border-radius: 4px;
+            font-size: 11px;
+            background: var(--blue-dim);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        /* Signal match & Parquet health */
+        .health-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .health-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px 16px;
+        }
+        .health-card h3 {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .health-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            padding: 3px 0;
+            border-bottom: 1px solid rgba(42,53,69,0.5);
+        }
+        .health-row:last-child { border-bottom: none; }
+        .health-key { color: var(--text-secondary); }
+        .health-val { font-weight: 500; }
+
+        /* Backtest section */
+        .backtest-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        @media (max-width: 768px) { .backtest-grid { grid-template-columns: 1fr; } }
+
+        .hourly-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 11px;
+        }
+        .hourly-table th {
+            text-align: left;
+            padding: 6px 8px;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 0.5px;
+        }
+        .hourly-table td {
+            padding: 5px 8px;
+            border-bottom: 1px solid rgba(42,53,69,0.3);
+        }
+        .signal-badge {
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+        .signal-long { background: var(--green-dim); color: var(--green); }
+        .signal-short { background: var(--red-dim); color: var(--red); }
+        .signal-none { color: var(--text-muted); }
+
+        /* Config section */
+        .config-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .config-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px 16px;
+        }
+        .config-card h3 {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--cyan);
+        }
+        .config-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            padding: 3px 0;
+        }
+        .config-key { color: var(--text-secondary); }
+        .config-val { color: var(--text-primary); font-weight: 500; }
+
+        /* Refresh pulse */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        .pulse { animation: pulse 2s infinite; }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-secondary); }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 11px;
+            border-top: 1px solid var(--border);
+            margin-top: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .bot-grid { grid-template-columns: 1fr; }
+            .summary-row { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 500px) {
+            .container { padding: 10px; }
+            .header h1 { font-size: 22px; }
+            .summary-row { grid-template-columns: 1fr; }
+        }
+
+        /* Loading */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+        .loading .spinner {
+            width: 24px;
+            height: 24px;
+            border: 3px solid var(--border);
+            border-top-color: var(--green);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-right: 12px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* Indicator pills */
+        .indicator-pills {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+        .indicator-pill {
+            font-size: 10px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+        .indicator-pill.active { border-color: var(--green); color: var(--green); background: var(--green-dim); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>PROJECT FREEDOM</h1>
+            <div class="subtitle">Automated Trading Bot Command Center</div>
+            <div class="meta-bar" id="metaBar">
+                <div class="loading"><div class="spinner"></div> Loading status...</div>
+            </div>
+        </div>
+        <div id="content"></div>
+        <div class="footer">
+            Project Freedom &mdash; Auto-refreshes every 60s &mdash; Data from monitor_daemon
+        </div>
+    </div>
+
+    <script>
+    const BOT_DISPLAY = {
+        'BTC': { icon: '₿', color: '#f7931a', label: 'BTC Ensemble' },
+        'BTC_TICK': { icon: '⚡', color: '#3b82f6', label: 'BTC Tick ML' },
+        'BTC_TICK_REVERSE': { icon: '🔄', color: '#a855f7', label: 'BTC Tick Reverse' },
+        'MNQ_GLOBAL': { icon: '📈', color: '#22c55e', label: 'MNQ Global Signal' },
+        'BTC_TPSL': { icon: '🎯', color: '#eab308', label: 'BTC TP/SL Multi' },
+        'BTC_V3': { icon: '🧠', color: '#06b6d4', label: 'BTC V3 Predictor' },
+    };
+
+    function probColor(val) {
+        if (val >= 65) return 'var(--green)';
+        if (val >= 40) return 'var(--yellow)';
+        return 'var(--red)';
+    }
+
+    function pnlClass(val) { return val >= 0 ? 'positive' : 'negative'; }
+    function pnlStr(val) { return val >= 0 ? `+$${val.toFixed(2)}` : `-$${Math.abs(val).toFixed(2)}`; }
+    function fmt(v, d=1) { return v != null ? Number(v).toFixed(d) : '—'; }
+
+    async function loadStatus() {
+        try {
+            const res = await fetch('status.json?' + Date.now());
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const data = await res.json();
+            render(data);
+        } catch (err) {
+            document.getElementById('content').innerHTML = `
+                <div class="loading" style="flex-direction:column; gap:12px;">
+                    <div style="font-size:48px;">⚠️</div>
+                    <div>Failed to load status: ${err.message}</div>
+                    <div style="font-size:11px; color:var(--text-muted);">Retrying in 60s...</div>
+                </div>`;
+        }
+    }
+
+    function render(data) {
+        // Meta bar
+        const bots = data.bots || {};
+        const running = Object.values(bots).filter(b => b.running).length;
+        const total = Object.keys(bots).length;
+        document.getElementById('metaBar').innerHTML = `
+            <div class="meta-item"><span>Updated:</span> ${data.last_update || '—'}</div>
+            <div class="meta-item"><span>Bots:</span> ${running}/${total} running</div>
+            <div class="meta-item"><span>Check #:</span> ${data.check_count || 0}</div>
+            <div class="meta-item pulse" style="color: var(--green);">● LIVE</div>
+        `;
+
+        let html = '';
+
+        // Alerts
+        if (data.alerts && data.alerts.length > 0) {
+            html += '<div class="alerts-bar">';
+            data.alerts.forEach(a => {
+                const icon = a.type === 'error' ? '🔴' : a.type === 'warning' ? '🟡' : '🔵';
+                const time = a.time ? a.time.split('T')[1]?.substring(0, 8) || a.time.substring(11, 19) : '';
+                html += `<div class="alert-item ${a.type}">
+                    <span class="alert-icon">${icon}</span>
+                    <span class="alert-time">${time}</span>
+                    <span>${a.message}</span>
+                </div>`;
+            });
+            html += '</div>';
+        }
+
+        // Summary cards
+        let totalRealized = 0, totalUnrealized = 0, totalTrades24h = 0, totalWins24h = 0, totalPositions = 0;
+        Object.values(bots).forEach(b => {
+            if (b.pnl_24h) {
+                totalRealized += b.pnl_24h.realized || 0;
+                totalUnrealized += b.pnl_24h.unrealized || 0;
+                totalTrades24h += b.pnl_24h.trades || 0;
+                totalWins24h += b.pnl_24h.wins || 0;
+            }
+            totalPositions += b.positions || 0;
+        });
+        const totalPnl = totalRealized + totalUnrealized;
+        const winRate24h = totalTrades24h > 0 ? (totalWins24h / totalTrades24h * 100).toFixed(1) : '—';
+
+        html += `<div class="summary-row">
+            <div class="summary-card">
+                <div class="label">24h P&L</div>
+                <div class="value ${pnlClass(totalPnl)}">${pnlStr(totalPnl)}</div>
+                <div class="detail">Real: ${pnlStr(totalRealized)} | Unreal: ${pnlStr(totalUnrealized)}</div>
+            </div>
+            <div class="summary-card">
+                <div class="label">24h Trades</div>
+                <div class="value neutral">${totalTrades24h}</div>
+                <div class="detail">WR: ${winRate24h}% (${totalWins24h}W / ${totalTrades24h - totalWins24h}L)</div>
+            </div>
+            <div class="summary-card">
+                <div class="label">Open Positions</div>
+                <div class="value" style="color:var(--blue)">${totalPositions}</div>
+                <div class="detail">${running}/${total} bots active</div>
+            </div>
+            <div class="summary-card">
+                <div class="label">BTC Price</div>
+                <div class="value neutral">${bots.BTC?.last_price ? '$' + Number(bots.BTC.last_price).toLocaleString() : '—'}</div>
+                <div class="detail">${data.parquet_health?.BTC?.freshness_minutes != null ? fmt(data.parquet_health.BTC.freshness_minutes, 0) + ' min ago' : ''}</div>
+            </div>
+        </div>`;
+
+        // Bot Cards
+        html += '<div class="section-title"><span class="icon">🤖</span> Bot Status</div>';
+        html += '<div class="bot-grid">';
+        for (const [name, bot] of Object.entries(bots)) {
+            const display = BOT_DISPLAY[name] || { icon: '🔧', color: '#888', label: name };
+            const badgeClass = bot.running ? 'badge-running' : 'badge-stopped';
+            const badgeText = bot.running ? 'Running' : 'Stopped';
+
+            // Stats
+            const pnl24 = bot.pnl_24h || {};
+            const realized = pnl24.realized || 0;
+            const unrealized = pnl24.unrealized || 0;
+            const trades = pnl24.trades || 0;
+
+            html += `<div class="bot-card">
+                <div class="bot-header">
+                    <div class="bot-name" style="color:${display.color}">${display.icon} ${display.label}</div>
+                    <span class="bot-badge ${badgeClass}">${badgeText}</span>
+                </div>
+                <div class="bot-body">
+                    <div class="bot-stats">
+                        <div class="bot-stat">
+                            <div class="stat-label">Positions</div>
+                            <div class="stat-value" style="color:var(--blue)">${bot.positions || 0}/${bot.max_positions || '?'}</div>
+                        </div>
+                        <div class="bot-stat">
+                            <div class="stat-label">24h P&L</div>
+                            <div class="stat-value ${pnlClass(realized + unrealized)}">${pnlStr(realized + unrealized)}</div>
+                        </div>
+                        <div class="bot-stat">
+                            <div class="stat-label">24h Trades</div>
+                            <div class="stat-value neutral">${trades} (${pnl24.wins||0}W/${pnl24.losses||0}L)</div>
+                        </div>
+                    </div>`;
+
+            // Probabilities
+            const probs = bot.probabilities || {};
+            if (Object.keys(probs).length > 0) {
+                html += '<div class="prob-section">';
+                for (const [model, val] of Object.entries(probs)) {
+                    const pct = Math.min(Math.max(val, 0), 100);
+                    const color = probColor(val);
+                    html += `<div class="prob-row">
+                        <span class="prob-label" title="${model}">${model}</span>
+                        <div class="prob-bar-bg">
+                            <div class="prob-bar-fill" style="width:${pct}%; background:${color};"></div>
+                        </div>
+                        <span class="prob-value" style="color:${color}">${fmt(val)}%</span>
+                    </div>`;
+                }
+                html += '</div>';
+            }
+
+            // Open positions
+            const openPos = pnl24.open_positions || [];
+            if (openPos.length > 0) {
+                html += `<div class="trades-section">
+                    <div class="trades-title">Open Positions</div>`;
+                openPos.forEach(p => {
+                    html += `<div class="position-row">
+                        <span class="trade-direction" style="color:${p.direction==='LONG'?'var(--green)':'var(--red)'}">${p.direction}</span>
+                        <span class="trade-model">${p.id}</span>
+                        <span class="trade-prices">Entry: $${Number(p.entry).toLocaleString()}</span>
+                        <span class="trade-pnl ${pnlClass(p.pnl)}">${pnlStr(p.pnl)}</span>
+                    </div>`;
+                });
+                html += '</div>';
+            }
+
+            // Closed trades
+            const closed = pnl24.closed_trades || [];
+            if (closed.length > 0) {
+                html += `<div class="trades-section">
+                    <div class="trades-title">Recent Closed (24h)</div>`;
+                closed.slice(0, 5).forEach(t => {
+                    const cls = t.pnl > 0 ? 'trade-win' : 'trade-loss';
+                    html += `<div class="trade-row ${cls}">
+                        <span class="trade-direction" style="color:${t.direction==='LONG'?'var(--green)':'var(--red)'}">${t.direction}</span>
+                        <span class="trade-model">${t.model || ''}</span>
+                        <span class="trade-prices">${Number(t.entry).toLocaleString()} → ${Number(t.exit).toLocaleString()}</span>
+                        <span class="trade-pnl ${pnlClass(t.pnl)}">${pnlStr(t.pnl)}</span>
+                        <span class="trade-reason">${t.reason || ''}</span>
+                    </div>`;
+                });
+                html += '</div>';
+            }
+
+            // Week stats (if available for MNQ, TPSL, V3)
+            if (bot.week_stats) {
+                const ws = bot.week_stats;
+                html += `<div class="trades-section">
+                    <div class="trades-title">7-Day Stats</div>
+                    <div style="font-size:11px; color:var(--text-secondary); padding:4px 8px;">
+                        ${ws.trades} trades | WR: ${ws.win_rate}% (${ws.wins}W/${ws.losses}L) | P&L: <span class="${pnlClass(ws.pnl)}">${pnlStr(ws.pnl)}</span>
+                    </div>
+                </div>`;
+            }
+
+            // Last log time
+            html += `<div style="font-size:10px; color:var(--text-muted); margin-top:8px; text-align:right;">
+                Last log: ${bot.last_log_time || '—'}
+            </div>`;
+
+            html += '</div></div>'; // close bot-body, bot-card
+        }
+        html += '</div>'; // close bot-grid
+
+        // Signal Match & Parquet Health
+        html += '<div class="section-title"><span class="icon">🔬</span> Signal Validation & Data Health</div>';
+        html += '<div class="health-grid">';
+
+        // Parquet health
+        const ph = data.parquet_health || {};
+        for (const [name, h] of Object.entries(ph)) {
+            const statusIcon = h.healthy ? '✅' : '❌';
+            html += `<div class="health-card">
+                <h3>${statusIcon} ${name} Parquet</h3>
+                <div class="health-row"><span class="health-key">Bars</span><span class="health-val">${h.bars?.toLocaleString() || '—'}</span></div>
+                <div class="health-row"><span class="health-key">Last Timestamp</span><span class="health-val">${h.last_timestamp || '—'}</span></div>
+                <div class="health-row"><span class="health-key">Freshness</span><span class="health-val">${h.freshness_minutes != null ? fmt(h.freshness_minutes, 1) + ' min' : '—'}</span></div>
+                ${h.issues && h.issues.length > 0 ? `<div class="health-row"><span class="health-key">Issues</span><span class="health-val negative">${h.issues.join(', ')}</span></div>` : ''}
+            </div>`;
+        }
+
+        // Signal match
+        const sm = data.signal_match || {};
+        for (const [name, s] of Object.entries(sm)) {
+            const matchIcon = s.match ? '✅' : '⚠️';
+            html += `<div class="health-card">
+                <h3>${matchIcon} ${name} Signal Match</h3>`;
+            if (s.note) {
+                html += `<div class="health-row"><span class="health-key">Note</span><span class="health-val" style="color:var(--yellow)">${s.note}</span></div>`;
+            }
+            if (s.timestamp) {
+                html += `<div class="health-row"><span class="health-key">Timestamp</span><span class="health-val">${s.timestamp}</span></div>`;
+            }
+
+            // Show parquet vs fresh probs
+            const pp = s.parquet_probs || {};
+            const fp = s.fresh_probs || {};
+            const diffs = s.differences || {};
+            for (const model of Object.keys(pp)) {
+                const pv = pp[model];
+                const fv = fp[model];
+                const dv = diffs[model];
+                const diffColor = typeof dv === 'number' && dv > 5 ? 'var(--red)' : 'var(--green)';
+                html += `<div class="health-row">
+                    <span class="health-key">${model}</span>
+                    <span class="health-val">${fmt(pv)}% ${fv != null ? `vs ${fmt(fv)}%` : ''} ${typeof dv === 'number' ? `<span style="color:${diffColor}">(Δ${fmt(dv)}%)</span>` : ''}</span>
+                </div>`;
+            }
+
+            // Indicators
+            if (s.indicators && Object.keys(s.indicators).length > 0) {
+                html += '<div class="indicator-pills">';
+                const ind = s.indicators;
+                if (ind.roc_12 != null) html += `<span class="indicator-pill ${ind.long_condition || ind.short_condition ? 'active' : ''}">ROC(12): ${fmt(ind.roc_12, 2)}%</span>`;
+                if (ind.macd_hist != null) html += `<span class="indicator-pill">MACD_H: ${fmt(ind.macd_hist, 4)}</span>`;
+                if (ind.bb_pct_b != null) html += `<span class="indicator-pill ${ind.bb_condition ? 'active' : ''}">BB%B: ${fmt(ind.bb_pct_b, 4)}</span>`;
+                if (ind.rsi != null) html += `<span class="indicator-pill ${ind.rsi_condition ? 'active' : ''}">RSI: ${fmt(ind.rsi, 1)}</span>`;
+                if (s.indicator_signal && s.indicator_signal !== false) {
+                    const sigColor = s.indicator_signal === 'LONG' ? 'signal-long' : 'signal-short';
+                    html += `<span class="signal-badge ${sigColor}">${s.indicator_signal}</span>`;
+                }
+                html += '</div>';
+            }
+
+            html += '</div>'; // close health-card
+        }
+        html += '</div>'; // close health-grid
+
+        // Backtest Section
+        const bt = data.backtest || {};
+        if (bt.hourly_summary || bt.recent_signals) {
+            html += '<div class="section-title"><span class="icon">📊</span> Backtest Signal Analysis (24h)</div>';
+            html += `<div class="summary-row" style="margin-bottom:16px;">
+                <div class="summary-card">
+                    <div class="label">Total Signals</div>
+                    <div class="value neutral">${bt.total_signals || 0}</div>
+                    <div class="detail">L: ${bt.long_signals || 0} | S: ${bt.short_signals || 0}</div>
+                </div>
+                <div class="summary-card">
+                    <div class="label">Signal Hours</div>
+                    <div class="value neutral">${bt.signal_hours || 0}</div>
+                    <div class="detail">Matched: ${bt.matched_hours || 0} | Missed: ${bt.missed_hours || 0}</div>
+                </div>
+                <div class="summary-card">
+                    <div class="label">Actual Trades</div>
+                    <div class="value neutral">${bt.trade_count || 0}</div>
+                    <div class="detail">Last run: ${bt.last_run || '—'}</div>
+                </div>
+            </div>`;
+
+            html += '<div class="backtest-grid">';
+
+            // Hourly summary table
+            if (bt.hourly_summary && bt.hourly_summary.length > 0) {
+                html += `<div class="health-card">
+                    <h3>📅 Hourly Summary</h3>
+                    <table class="hourly-table">
+                        <thead><tr><th>Hour</th><th>Price</th><th>Long%</th><th>Short%</th><th>Signal</th></tr></thead>
+                        <tbody>`;
+                bt.hourly_summary.forEach(h => {
+                    const sig = h.signal === 'LONG' ? '<span class="signal-badge signal-long">LONG</span>'
+                              : h.signal === 'SHORT' ? '<span class="signal-badge signal-short">SHORT</span>'
+                              : '<span class="signal-none">—</span>';
+                    html += `<tr>
+                        <td>${h.hour}</td>
+                        <td>$${Number(h.price).toLocaleString()}</td>
+                        <td style="color:${h.long >= 65 ? 'var(--green)' : 'var(--text-secondary)'}">${h.long}%</td>
+                        <td style="color:${h.short >= 65 ? 'var(--red)' : 'var(--text-secondary)'}">${h.short}%</td>
+                        <td>${sig}</td>
+                    </tr>`;
+                });
+                html += '</tbody></table></div>';
+            }
+
+            // Recent signals
+            if (bt.recent_signals && bt.recent_signals.length > 0) {
+                html += `<div class="health-card">
+                    <h3>⚡ Recent Signals</h3>
+                    <table class="hourly-table">
+                        <thead><tr><th>Time</th><th>Price</th><th>Model</th><th>Prob</th></tr></thead>
+                        <tbody>`;
+                bt.recent_signals.forEach(s => {
+                    html += `<tr>
+                        <td>${s.time}</td>
+                        <td>$${Number(s.price).toLocaleString()}</td>
+                        <td>${s.model}</td>
+                        <td style="color:${probColor(s.prob)}">${s.prob}%</td>
+                    </tr>`;
+                });
+                html += '</tbody></table></div>';
+            }
+
+            html += '</div>'; // close backtest-grid
+        }
+
+        // Config Section (collapsed by default)
+        const cfg = data.config || {};
+        if (Object.keys(cfg).length > 0) {
+            html += `<details style="margin-bottom:24px;">
+                <summary class="section-title" style="cursor:pointer; user-select:none;">
+                    <span class="icon">⚙️</span> Bot Configuration
+                </summary>
+                <div class="config-grid" style="margin-top:14px;">`;
+
+            for (const [name, c] of Object.entries(cfg)) {
+                const display = BOT_DISPLAY[name] || { label: name, color: '#888' };
+                html += `<div class="config-card">
+                    <h3>${display.label}</h3>`;
+                for (const [key, val] of Object.entries(c)) {
+                    if (key === 'models' || key === 'strategies') {
+                        html += `<div class="config-row"><span class="config-key">${key}</span><span class="config-val">${Array.isArray(val) ? val.join(', ') : val}</span></div>`;
+                    } else if (key === 'thresholds' && typeof val === 'object') {
+                        for (const [tk, tv] of Object.entries(val)) {
+                            html += `<div class="config-row"><span class="config-key">  ${tk}</span><span class="config-val">${(tv * 100).toFixed(0)}%</span></div>`;
+                        }
+                    } else if (typeof val !== 'object') {
+                        html += `<div class="config-row"><span class="config-key">${key}</span><span class="config-val">${val}</span></div>`;
+                    }
+                }
+                html += '</div>';
+            }
+            html += '</div></details>';
+        }
+
+        document.getElementById('content').innerHTML = html;
+    }
+
+    // Initial load + auto-refresh
+    loadStatus();
+    setInterval(loadStatus, 60000);
+    </script>
+</body>
+</html>
