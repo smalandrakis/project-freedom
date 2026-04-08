@@ -1,6 +1,6 @@
 {
-  "last_update": "2026-04-08 11:54:24 CET",
-  "last_update_utc": "2026-04-08 15:54:24 UTC",
+  "last_update": "2026-04-08 12:55:09 CET",
+  "last_update_utc": "2026-04-08 16:55:09 UTC",
   "bots": {
     "BTC": {
       "running": false,
@@ -203,16 +203,16 @@
       "healthy": true,
       "bars": 2000,
       "last_timestamp": "2026-04-08 12:25:00",
-      "freshness_minutes": 209.4,
+      "freshness_minutes": 270.2,
       "issues": [
-        "Stale data: 209 min old"
+        "Stale data: 270 min old"
       ]
     },
     "QQQ": {
       "healthy": true,
       "bars": 13652,
       "last_timestamp": "2026-03-31 22:00:00",
-      "freshness_minutes": 11154.4,
+      "freshness_minutes": 11215.2,
       "issues": []
     }
   },
@@ -231,7 +231,7 @@
       "timestamp": "2026-04-08 12:25:00",
       "indicators": {},
       "indicator_signal": false,
-      "error": "HTTPSConnectionPool(host='api.binance.com', port=443): Max retries exceeded with url: /api/v3/klines?symbol=BTCUSDT&interval=5m&limit=1000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x13208cc70>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))"
+      "error": "HTTPSConnectionPool(host='api.binance.com', port=443): Max retries exceeded with url: /api/v3/klines?symbol=BTCUSDT&interval=5m&limit=1000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x132083c40>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))"
     },
     "MNQ": {
       "match": true,
@@ -423,7 +423,7 @@
     "trade_count": 0
   },
   "alerts": [],
-  "check_count": 50,
+  "check_count": 51,
   "config": {
     "BTC": {
       "SL_PCT": 0.7,
