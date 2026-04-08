@@ -1,6 +1,6 @@
 {
-  "last_update": "2026-04-08 14:57:24 CET",
-  "last_update_utc": "2026-04-08 18:57:24 UTC",
+  "last_update": "2026-04-08 15:58:09 CET",
+  "last_update_utc": "2026-04-08 19:58:09 UTC",
   "bots": {
     "BTC": {
       "running": false,
@@ -183,16 +183,16 @@
       "healthy": true,
       "bars": 2000,
       "last_timestamp": "2026-04-08 12:25:00",
-      "freshness_minutes": 392.4,
+      "freshness_minutes": 453.2,
       "issues": [
-        "Stale data: 392 min old"
+        "Stale data: 453 min old"
       ]
     },
     "QQQ": {
       "healthy": true,
       "bars": 13652,
       "last_timestamp": "2026-03-31 22:00:00",
-      "freshness_minutes": 11337.4,
+      "freshness_minutes": 11398.2,
       "issues": []
     }
   },
@@ -211,7 +211,7 @@
       "timestamp": "2026-04-08 12:25:00",
       "indicators": {},
       "indicator_signal": false,
-      "error": "HTTPSConnectionPool(host='api.binance.com', port=443): Max retries exceeded with url: /api/v3/klines?symbol=BTCUSDT&interval=5m&limit=1000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x132224ca0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))"
+      "error": "HTTPSConnectionPool(host='api.binance.com', port=443): Max retries exceeded with url: /api/v3/klines?symbol=BTCUSDT&interval=5m&limit=1000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x13208cca0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))"
     },
     "MNQ": {
       "match": true,
@@ -404,7 +404,7 @@
     "error": "HTTPSConnectionPool(host='api.binance.com', port=443): Max retries exceeded with url: /api/v3/klines?symbol=BTCUSDT&interval=5m&limit=1000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x131b877f0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))"
   },
   "alerts": [],
-  "check_count": 53,
+  "check_count": 54,
   "config": {
     "BTC": {
       "SL_PCT": 0.7,
