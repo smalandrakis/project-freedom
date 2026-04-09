@@ -1,6 +1,6 @@
 {
-  "last_update": "2026-04-09 10:36:36 CET",
-  "last_update_utc": "2026-04-09 14:36:36 UTC",
+  "last_update": "2026-04-09 11:06:44 CET",
+  "last_update_utc": "2026-04-09 15:06:44 UTC",
   "bots": {
     "BTC": {
       "running": false,
@@ -183,16 +183,16 @@
       "healthy": true,
       "bars": 2000,
       "last_timestamp": "2026-04-09 11:00:00",
-      "freshness_minutes": 216.5,
+      "freshness_minutes": 246.7,
       "issues": [
-        "Stale data: 217 min old"
+        "Stale data: 247 min old"
       ]
     },
     "QQQ": {
       "healthy": true,
       "bars": 13652,
       "last_timestamp": "2026-03-31 22:00:00",
-      "freshness_minutes": 12516.5,
+      "freshness_minutes": 12546.7,
       "issues": []
     }
   },
@@ -234,7 +234,7 @@
         "4h_0.5pct_SHORT": 6.8
       },
       "timestamp": "2026-03-31 21:55:00",
-      "note": "Compared at common timestamp: 2026-03-31 21:55:00 (parquet latest: 2026-03-31 22:00:00, fresh latest: 2026-04-09 16:35:00)",
+      "note": "Compared at common timestamp: 2026-03-31 21:55:00 (parquet latest: 2026-03-31 22:00:00, fresh latest: 2026-04-09 17:05:00)",
       "indicators": {
         "bb_pct_b": 0.4893,
         "bb_condition": true,
@@ -421,7 +421,7 @@
     "trade_count": 0
   },
   "alerts": [],
-  "check_count": 91,
+  "check_count": 92,
   "config": {
     "BTC": {
       "SL_PCT": 0.7,
