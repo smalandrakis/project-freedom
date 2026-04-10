@@ -1,6 +1,6 @@
 {
-  "last_update": "2026-04-10 12:08:32 CET",
-  "last_update_utc": "2026-04-10 10:08:32 UTC",
+  "last_update": "2026-04-10 12:38:37 CET",
+  "last_update_utc": "2026-04-10 10:38:37 UTC",
   "bots": {
     "BTC": {
       "running": false,
@@ -169,7 +169,7 @@
       },
       "pnl_24h": {
         "realized": 0,
-        "unrealized": -338.91,
+        "unrealized": -338.34,
         "trades": 0,
         "wins": 0,
         "losses": 0,
@@ -178,8 +178,8 @@
             "id": "v3_short",
             "direction": "SHORT",
             "entry": 68389.55,
-            "current": 71778.66,
-            "pnl": -338.91
+            "current": 71772.95,
+            "pnl": -338.34
           }
         ],
         "closed_trades": []
@@ -191,16 +191,16 @@
       "healthy": true,
       "bars": 2000,
       "last_timestamp": "2026-04-10 09:35:00",
-      "freshness_minutes": 33.5,
+      "freshness_minutes": 63.6,
       "issues": [
-        "Stale data: 33 min old"
+        "Stale data: 64 min old"
       ]
     },
     "QQQ": {
       "healthy": true,
       "bars": 13652,
       "last_timestamp": "2026-03-31 22:00:00",
-      "freshness_minutes": 13688.5,
+      "freshness_minutes": 13718.6,
       "issues": []
     }
   },
@@ -265,7 +265,7 @@
         "4h_0.5pct_SHORT": 4.7
       },
       "timestamp": "2026-03-31 22:00:00",
-      "note": "Compared at common timestamp: 2026-03-31 22:00:00 (parquet latest: 2026-03-31 22:00:00, fresh latest: 2026-04-10 11:55:00)",
+      "note": "Compared at common timestamp: 2026-03-31 22:00:00 (parquet latest: 2026-03-31 22:00:00, fresh latest: 2026-04-10 12:25:00)",
       "indicators": {
         "bb_pct_b": 0.4893,
         "bb_condition": true,
@@ -453,7 +453,7 @@
     "error": "HTTPSConnectionPool(host='api.binance.com', port=443): Max retries exceeded with url: /api/v3/klines?symbol=BTCUSDT&interval=5m&limit=1000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x131d73670>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))"
   },
   "alerts": [],
-  "check_count": 114,
+  "check_count": 115,
   "config": {
     "BTC": {
       "SL_PCT": 0.7,
