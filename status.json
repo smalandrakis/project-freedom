@@ -1,6 +1,6 @@
 {
-  "last_update": "2026-04-10 17:10:01 CET",
-  "last_update_utc": "2026-04-10 15:10:01 UTC",
+  "last_update": "2026-04-10 18:57:13 CET",
+  "last_update_utc": "2026-04-10 16:57:13 UTC",
   "bots": {
     "BTC": {
       "running": false,
@@ -169,7 +169,7 @@
       },
       "pnl_24h": {
         "realized": 0,
-        "unrealized": -469.83,
+        "unrealized": -455.52,
         "trades": 0,
         "wins": 0,
         "losses": 0,
@@ -178,8 +178,8 @@
             "id": "v3_short",
             "direction": "SHORT",
             "entry": 68389.55,
-            "current": 73087.84,
-            "pnl": -469.83
+            "current": 72944.73,
+            "pnl": -455.52
           }
         ],
         "closed_trades": []
@@ -191,58 +191,59 @@
       "healthy": true,
       "bars": 2000,
       "last_timestamp": "2026-04-10 14:35:00",
-      "freshness_minutes": 35.0,
+      "freshness_minutes": 141.7,
       "issues": [
-        "Stale data: 35 min old"
+        "Stale data: 142 min old"
       ]
     },
     "QQQ": {
       "healthy": true,
       "bars": 13652,
       "last_timestamp": "2026-03-31 22:00:00",
-      "freshness_minutes": 13990.0,
+      "freshness_minutes": 14096.7,
       "issues": []
     }
   },
   "signal_match": {
     "BTC": {
-      "match": true,
+      "match": false,
       "differences": {
-        "2h_0.5pct": 0.2,
-        "4h_0.5pct": 0.6,
-        "6h_0.5pct": 0.0,
-        "2h_0.5pct_SHORT": 0.3,
-        "4h_0.5pct_SHORT": 0.3
+        "2h_0.5pct": 20.7,
+        "4h_0.5pct": 29.4,
+        "6h_0.5pct": 13.6,
+        "2h_0.5pct_SHORT": 34.6,
+        "4h_0.5pct_SHORT": 19.1
       },
       "parquet_probs": {
-        "2h_0.5pct": 7.4,
-        "4h_0.5pct": 12.3,
-        "6h_0.5pct": 20.6,
-        "2h_0.5pct_SHORT": 80.5,
-        "4h_0.5pct_SHORT": 82.8
+        "2h_0.5pct": 36.6,
+        "4h_0.5pct": 42.8,
+        "6h_0.5pct": 26.2,
+        "2h_0.5pct_SHORT": 45.7,
+        "4h_0.5pct_SHORT": 65.5
       },
       "fresh_probs": {
-        "2h_0.5pct": 7.6,
-        "4h_0.5pct": 12.9,
-        "6h_0.5pct": 20.6,
-        "2h_0.5pct_SHORT": 80.2,
-        "4h_0.5pct_SHORT": 82.5
+        "2h_0.5pct": 15.9,
+        "4h_0.5pct": 13.4,
+        "6h_0.5pct": 12.6,
+        "2h_0.5pct_SHORT": 80.3,
+        "4h_0.5pct_SHORT": 84.6
       },
       "timestamp": "2026-04-10 14:35:00",
       "indicators": {
-        "bb_pct_b": 0.9501,
-        "macd": 228.21,
-        "macd_signal": 144.93,
-        "macd_hist": 83.2841,
-        "macd_hist_prev": 85.7091,
-        "roc_12": 1.58,
+        "bb_pct_b": 0.7843,
+        "macd": 44.64,
+        "macd_signal": 29.38,
+        "macd_hist": 15.256,
+        "macd_hist_prev": 7.61,
+        "roc_12": 0.64,
         "roc_threshold": 0.4,
-        "long_condition": false,
+        "long_condition": true,
         "short_condition": false,
-        "macd_hist_increasing": false,
-        "macd_hist_decreasing": true
+        "macd_hist_increasing": true,
+        "macd_hist_decreasing": false
       },
-      "indicator_signal": false
+      "indicator_signal": "LONG",
+      "auto_fixed": true
     },
     "MNQ": {
       "match": true,
@@ -265,7 +266,7 @@
         "4h_0.5pct_SHORT": 6.8
       },
       "timestamp": "2026-03-31 21:55:00",
-      "note": "Compared at common timestamp: 2026-03-31 21:55:00 (parquet latest: 2026-03-31 22:00:00, fresh latest: 2026-04-10 17:05:00)",
+      "note": "Compared at common timestamp: 2026-03-31 21:55:00 (parquet latest: 2026-03-31 22:00:00, fresh latest: 2026-04-10 18:55:00)",
       "indicators": {
         "bb_pct_b": 0.4893,
         "bb_condition": true,
@@ -451,8 +452,34 @@
     "missed_hours": 11,
     "trade_count": 0
   },
-  "alerts": [],
-  "check_count": 124,
+  "alerts": [
+    {
+      "time": "2026-04-10T16:56:55.684259",
+      "type": "warning",
+      "message": "BTC 2h_0.5pct mismatch: parquet=7.4% vs fresh=15.9%"
+    },
+    {
+      "time": "2026-04-10T16:57:01.321397",
+      "type": "warning",
+      "message": "BTC 6h_0.5pct mismatch: parquet=20.6% vs fresh=12.6%"
+    },
+    {
+      "time": "2026-04-10T16:57:04.711467",
+      "type": "info",
+      "message": "BTC parquet refreshed with 2000 bars"
+    },
+    {
+      "time": "2026-04-10T16:57:04.713795",
+      "type": "info",
+      "message": "BTC parquet auto-refreshed to fix mismatch"
+    },
+    {
+      "time": "2026-04-10T16:57:08.694588",
+      "type": "warning",
+      "message": "BTC signal still mismatched after refresh - may need investigation"
+    }
+  ],
+  "check_count": 125,
   "config": {
     "BTC": {
       "SL_PCT": 0.7,
