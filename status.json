@@ -1,6 +1,6 @@
 {
-  "last_update": "2026-04-11 11:05:42 CET",
-  "last_update_utc": "2026-04-11 08:05:42 UTC",
+  "last_update": "2026-04-11 12:06:28 CET",
+  "last_update_utc": "2026-04-11 09:06:28 UTC",
   "bots": {
     "BTC": {
       "running": false,
@@ -169,7 +169,7 @@
       },
       "pnl_24h": {
         "realized": 0,
-        "unrealized": -425.39,
+        "unrealized": -425.12,
         "trades": 0,
         "wins": 0,
         "losses": 0,
@@ -178,8 +178,8 @@
             "id": "v3_short",
             "direction": "SHORT",
             "entry": 68389.55,
-            "current": 72643.48,
-            "pnl": -425.39
+            "current": 72640.75,
+            "pnl": -425.12
           }
         ],
         "closed_trades": []
@@ -191,16 +191,16 @@
       "healthy": true,
       "bars": 2000,
       "last_timestamp": "2026-04-11 04:25:00",
-      "freshness_minutes": 98.4,
+      "freshness_minutes": 281.4,
       "issues": [
-        "Stale data: 98 min old"
+        "Stale data: 281 min old"
       ]
     },
     "QQQ": {
       "healthy": true,
       "bars": 13652,
       "last_timestamp": "2026-03-31 22:00:00",
-      "freshness_minutes": 14883.4,
+      "freshness_minutes": 15066.4,
       "issues": []
     }
   },
@@ -209,10 +209,10 @@
       "match": true,
       "differences": {
         "2h_0.5pct": 0.2,
-        "4h_0.5pct": 1.4,
-        "6h_0.5pct": 4.3,
-        "2h_0.5pct_SHORT": 0.5,
-        "4h_0.5pct_SHORT": 2.7
+        "4h_0.5pct": 0.8,
+        "6h_0.5pct": 0.0,
+        "2h_0.5pct_SHORT": 0.4,
+        "4h_0.5pct_SHORT": 0.6
       },
       "parquet_probs": {
         "2h_0.5pct": 8.6,
@@ -223,10 +223,10 @@
       },
       "fresh_probs": {
         "2h_0.5pct": 8.8,
-        "4h_0.5pct": 15.7,
-        "6h_0.5pct": 9.0,
-        "2h_0.5pct_SHORT": 13.1,
-        "4h_0.5pct_SHORT": 9.8
+        "4h_0.5pct": 16.3,
+        "6h_0.5pct": 13.3,
+        "2h_0.5pct_SHORT": 13.0,
+        "4h_0.5pct_SHORT": 7.7
       },
       "timestamp": "2026-04-11 04:25:00",
       "indicators": {
@@ -434,7 +434,7 @@
     "trade_count": 0
   },
   "alerts": [],
-  "check_count": 138,
+  "check_count": 139,
   "config": {
     "BTC": {
       "SL_PCT": 0.7,
