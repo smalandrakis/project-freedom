@@ -1,6 +1,6 @@
 {
-  "last_update": "2026-04-12 21:05:16 CET",
-  "last_update_utc": "2026-04-12 18:05:16 UTC",
+  "last_update": "2026-04-12 21:35:23 CET",
+  "last_update_utc": "2026-04-12 18:35:23 UTC",
   "bots": {
     "BTC": {
       "running": false,
@@ -169,7 +169,7 @@
       },
       "pnl_24h": {
         "realized": 0,
-        "unrealized": -276.45,
+        "unrealized": -275.68,
         "trades": 0,
         "wins": 0,
         "losses": 0,
@@ -178,8 +178,8 @@
             "id": "v3_short",
             "direction": "SHORT",
             "entry": 68389.55,
-            "current": 71154.01,
-            "pnl": -276.45
+            "current": 71146.36,
+            "pnl": -275.68
           }
         ],
         "closed_trades": []
@@ -191,16 +191,16 @@
       "healthy": true,
       "bars": 2000,
       "last_timestamp": "2026-04-12 16:00:00",
-      "freshness_minutes": 125.0,
+      "freshness_minutes": 155.3,
       "issues": [
-        "Stale data: 125 min old"
+        "Stale data: 155 min old"
       ]
     },
     "QQQ": {
       "healthy": true,
       "bars": 13652,
       "last_timestamp": "2026-03-31 22:00:00",
-      "freshness_minutes": 17045.0,
+      "freshness_minutes": 17075.3,
       "issues": []
     }
   },
@@ -434,7 +434,7 @@
     "trade_count": 0
   },
   "alerts": [],
-  "check_count": 176,
+  "check_count": 177,
   "config": {
     "BTC": {
       "SL_PCT": 0.7,
