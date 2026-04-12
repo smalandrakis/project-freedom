@@ -1,6 +1,6 @@
 {
-  "last_update": "2026-04-13 01:36:34 CET",
-  "last_update_utc": "2026-04-12 22:36:34 UTC",
+  "last_update": "2026-04-13 02:06:41 CET",
+  "last_update_utc": "2026-04-12 23:06:41 UTC",
   "bots": {
     "BTC": {
       "running": false,
@@ -169,7 +169,7 @@
       },
       "pnl_24h": {
         "realized": 0,
-        "unrealized": -239.85,
+        "unrealized": -242.93,
         "trades": 0,
         "wins": 0,
         "losses": 0,
@@ -178,8 +178,8 @@
             "id": "v3_short",
             "direction": "SHORT",
             "entry": 68389.55,
-            "current": 70788.02,
-            "pnl": -239.85
+            "current": 70818.86,
+            "pnl": -242.93
           }
         ],
         "closed_trades": []
@@ -190,52 +190,52 @@
     "BTC": {
       "healthy": true,
       "bars": 2000,
-      "last_timestamp": "2026-04-12 22:05:00",
-      "freshness_minutes": 31.5,
+      "last_timestamp": "2026-04-12 22:35:00",
+      "freshness_minutes": 31.6,
       "issues": [
-        "Stale data: 31 min old"
+        "Stale data: 32 min old"
       ]
     },
     "QQQ": {
       "healthy": true,
       "bars": 13652,
       "last_timestamp": "2026-03-31 22:00:00",
-      "freshness_minutes": 17316.5,
+      "freshness_minutes": 17346.6,
       "issues": []
     }
   },
   "signal_match": {
     "BTC": {
-      "match": false,
+      "match": true,
       "differences": {
-        "2h_0.5pct": 3.7,
-        "4h_0.5pct": 4.3,
-        "6h_0.5pct": 11.1,
-        "2h_0.5pct_SHORT": 9.3,
-        "4h_0.5pct_SHORT": 3.8
+        "2h_0.5pct": 1.5,
+        "4h_0.5pct": 0.5,
+        "6h_0.5pct": 0.3,
+        "2h_0.5pct_SHORT": 2.6,
+        "4h_0.5pct_SHORT": 0.5
       },
       "parquet_probs": {
-        "2h_0.5pct": 9.6,
-        "4h_0.5pct": 15.3,
-        "6h_0.5pct": 5.9,
-        "2h_0.5pct_SHORT": 51.9,
-        "4h_0.5pct_SHORT": 24.1
+        "2h_0.5pct": 7.8,
+        "4h_0.5pct": 10.6,
+        "6h_0.5pct": 5.6,
+        "2h_0.5pct_SHORT": 50.9,
+        "4h_0.5pct_SHORT": 18.5
       },
       "fresh_probs": {
-        "2h_0.5pct": 5.9,
-        "4h_0.5pct": 19.6,
-        "6h_0.5pct": 17.0,
-        "2h_0.5pct_SHORT": 61.2,
-        "4h_0.5pct_SHORT": 27.9
+        "2h_0.5pct": 9.3,
+        "4h_0.5pct": 11.1,
+        "6h_0.5pct": 5.3,
+        "2h_0.5pct_SHORT": 53.5,
+        "4h_0.5pct_SHORT": 18.0
       },
-      "timestamp": "2026-04-12 22:05:00",
+      "timestamp": "2026-04-12 22:35:00",
       "indicators": {
-        "bb_pct_b": 0.2059,
-        "macd": -118.93,
-        "macd_signal": -66.37,
-        "macd_hist": -52.5578,
-        "macd_hist_prev": -63.1401,
-        "roc_12": -0.75,
+        "bb_pct_b": 0.3519,
+        "macd": -95.18,
+        "macd_signal": -92.08,
+        "macd_hist": -3.1071,
+        "macd_hist_prev": -7.0466,
+        "roc_12": -0.15,
         "roc_threshold": 0.4,
         "long_condition": false,
         "short_condition": false,
@@ -436,37 +436,12 @@
   },
   "alerts": [
     {
-      "time": "2026-04-12T22:36:30.720676",
-      "type": "warning",
-      "message": "BTC 4h_0.5pct mismatch: parquet=37.3% vs fresh=19.6%"
-    },
-    {
-      "time": "2026-04-12T22:36:30.730569",
-      "type": "warning",
-      "message": "BTC 2h_0.5pct_SHORT mismatch: parquet=55.6% vs fresh=61.2%"
-    },
-    {
-      "time": "2026-04-12T22:36:30.735612",
-      "type": "warning",
-      "message": "BTC 4h_0.5pct_SHORT mismatch: parquet=11.6% vs fresh=27.9%"
-    },
-    {
-      "time": "2026-04-12T22:36:32.670477",
+      "time": "2026-04-12T23:06:39.872222",
       "type": "info",
       "message": "BTC parquet refreshed with 2000 bars"
-    },
-    {
-      "time": "2026-04-12T22:36:32.670840",
-      "type": "info",
-      "message": "BTC parquet auto-refreshed to fix mismatch"
-    },
-    {
-      "time": "2026-04-12T22:36:32.702376",
-      "type": "warning",
-      "message": "BTC signal still mismatched after refresh - may need investigation"
     }
   ],
-  "check_count": 185,
+  "check_count": 186,
   "config": {
     "BTC": {
       "SL_PCT": 0.7,
