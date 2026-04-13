@@ -1,21 +1,21 @@
 {
-  "last_update": "2026-04-13 22:44:57 CET",
-  "last_update_utc": "2026-04-13 19:44:57 UTC",
+  "last_update": "2026-04-13 23:15:13 CET",
+  "last_update_utc": "2026-04-13 20:15:13 UTC",
   "bots": {
     "BTC": {
       "running": true,
       "pid": "76884",
       "probabilities": {
-        "2h_0.5pct": 15.7,
-        "4h_0.5pct": 36.9,
-        "6h_0.5pct": 66.5,
-        "2h_0.5pct_SHORT": 27.8,
-        "4h_0.5pct_SHORT": 18.1
+        "2h_0.5pct": 41.1,
+        "4h_0.5pct": 32.6,
+        "6h_0.5pct": 57.7,
+        "2h_0.5pct_SHORT": 16.7,
+        "4h_0.5pct_SHORT": 9.3
       },
       "positions": 0,
       "max_positions": 4,
-      "last_price": 73016.0,
-      "last_log_time": "2026-04-13 22:44:47",
+      "last_price": 73075.66,
+      "last_log_time": "2026-04-13 23:15:05",
       "pnl_24h": {
         "realized": 47.62,
         "unrealized": 0,
@@ -179,7 +179,7 @@
       },
       "pnl_24h": {
         "realized": 0,
-        "unrealized": -462.64,
+        "unrealized": -471.04,
         "trades": 0,
         "wins": 0,
         "losses": 0,
@@ -188,8 +188,8 @@
             "id": "v3_short",
             "direction": "SHORT",
             "entry": 68389.55,
-            "current": 73015.99,
-            "pnl": -462.64
+            "current": 73099.92,
+            "pnl": -471.04
           }
         ],
         "closed_trades": []
@@ -199,51 +199,51 @@
   "parquet_health": {
     "BTC": {
       "healthy": true,
-      "bars": 2030,
-      "last_timestamp": "2026-04-13 19:40:00",
-      "freshness_minutes": 4.8,
+      "bars": 2006,
+      "last_timestamp": "2026-04-13 20:10:00",
+      "freshness_minutes": 5.1,
       "issues": []
     },
     "QQQ": {
       "healthy": true,
       "bars": 13652,
       "last_timestamp": "2026-03-31 22:00:00",
-      "freshness_minutes": 18584.8,
+      "freshness_minutes": 18615.1,
       "issues": []
     }
   },
   "signal_match": {
     "BTC": {
-      "match": true,
+      "match": false,
       "differences": {
-        "2h_0.5pct": 0.0,
-        "4h_0.5pct": 0.0,
-        "6h_0.5pct": 0.0,
-        "2h_0.5pct_SHORT": 0.0,
-        "4h_0.5pct_SHORT": 0.0
+        "2h_0.5pct": 13.5,
+        "4h_0.5pct": 4.3,
+        "6h_0.5pct": 22.6,
+        "2h_0.5pct_SHORT": 1.7,
+        "4h_0.5pct_SHORT": 1.5
       },
       "parquet_probs": {
-        "2h_0.5pct": 26.0,
-        "4h_0.5pct": 23.7,
-        "6h_0.5pct": 61.8,
-        "2h_0.5pct_SHORT": 25.3,
-        "4h_0.5pct_SHORT": 13.7
+        "2h_0.5pct": 41.1,
+        "4h_0.5pct": 34.2,
+        "6h_0.5pct": 57.3,
+        "2h_0.5pct_SHORT": 15.2,
+        "4h_0.5pct_SHORT": 9.1
       },
       "fresh_probs": {
-        "2h_0.5pct": 26.0,
-        "4h_0.5pct": 23.7,
-        "6h_0.5pct": 61.8,
-        "2h_0.5pct_SHORT": 25.3,
-        "4h_0.5pct_SHORT": 13.7
+        "2h_0.5pct": 54.6,
+        "4h_0.5pct": 38.5,
+        "6h_0.5pct": 79.9,
+        "2h_0.5pct_SHORT": 13.5,
+        "4h_0.5pct_SHORT": 7.6
       },
-      "timestamp": "2026-04-13 19:40:00",
+      "timestamp": "2026-04-13 20:10:00",
       "indicators": {
-        "bb_pct_b": 0.931,
-        "macd": 207.83,
-        "macd_signal": 131.04,
-        "macd_hist": 76.7939,
-        "macd_hist_prev": 82.3863,
-        "roc_12": 0.94,
+        "bb_pct_b": 0.6537,
+        "macd": 247.19,
+        "macd_signal": 238.28,
+        "macd_hist": 8.9084,
+        "macd_hist_prev": 28.9609,
+        "roc_12": 0.73,
         "roc_threshold": 0.4,
         "long_condition": false,
         "short_condition": false,
@@ -256,25 +256,25 @@
     "MNQ": {
       "match": true,
       "differences": {
-        "2h_0.5pct": 4.8,
-        "4h_0.5pct": 3.4,
-        "2h_0.5pct_SHORT": 3.2,
-        "4h_0.5pct_SHORT": 2.0
+        "2h_0.5pct": 0.0,
+        "4h_0.5pct": 3.5,
+        "2h_0.5pct_SHORT": 0.6,
+        "4h_0.5pct_SHORT": 0.0
       },
       "parquet_probs": {
-        "2h_0.5pct": 38.3,
-        "4h_0.5pct": 42.1,
-        "2h_0.5pct_SHORT": 14.7,
-        "4h_0.5pct_SHORT": 4.8
+        "2h_0.5pct": 44.9,
+        "4h_0.5pct": 53.5,
+        "2h_0.5pct_SHORT": 13.6,
+        "4h_0.5pct_SHORT": 4.7
       },
       "fresh_probs": {
-        "2h_0.5pct": 43.1,
-        "4h_0.5pct": 45.5,
-        "2h_0.5pct_SHORT": 11.5,
-        "4h_0.5pct_SHORT": 6.8
+        "2h_0.5pct": 44.9,
+        "4h_0.5pct": 50.0,
+        "2h_0.5pct_SHORT": 14.2,
+        "4h_0.5pct_SHORT": 4.7
       },
-      "timestamp": "2026-03-31 21:55:00",
-      "note": "Compared at common timestamp: 2026-03-31 21:55:00 (parquet latest: 2026-03-31 22:00:00, fresh latest: 2026-04-13 21:40:00)",
+      "timestamp": "2026-03-31 22:00:00",
+      "note": "Compared at common timestamp: 2026-03-31 22:00:00 (parquet latest: 2026-03-31 22:00:00, fresh latest: 2026-04-13 22:05:00)",
       "indicators": {
         "bb_pct_b": 0.4893,
         "bb_condition": true,
@@ -462,12 +462,42 @@
   },
   "alerts": [
     {
-      "time": "2026-04-13T19:44:51.224435",
+      "time": "2026-04-13T20:15:06.733656",
+      "type": "warning",
+      "message": "BTC 2h_0.5pct mismatch: parquet=15.2% vs fresh=54.6%"
+    },
+    {
+      "time": "2026-04-13T20:15:06.739329",
+      "type": "warning",
+      "message": "BTC 4h_0.5pct mismatch: parquet=33.0% vs fresh=38.5%"
+    },
+    {
+      "time": "2026-04-13T20:15:06.747444",
+      "type": "warning",
+      "message": "BTC 6h_0.5pct mismatch: parquet=70.7% vs fresh=79.9%"
+    },
+    {
+      "time": "2026-04-13T20:15:06.752592",
+      "type": "warning",
+      "message": "BTC 2h_0.5pct_SHORT mismatch: parquet=26.1% vs fresh=13.5%"
+    },
+    {
+      "time": "2026-04-13T20:15:08.951383",
       "type": "info",
       "message": "BTC parquet refreshed with 2000 bars"
+    },
+    {
+      "time": "2026-04-13T20:15:08.951716",
+      "type": "info",
+      "message": "BTC parquet auto-refreshed to fix mismatch"
+    },
+    {
+      "time": "2026-04-13T20:15:08.984914",
+      "type": "warning",
+      "message": "BTC signal still mismatched after refresh - may need investigation"
     }
   ],
-  "check_count": 227,
+  "check_count": 228,
   "config": {
     "BTC": {
       "SL_PCT": 0.7,
