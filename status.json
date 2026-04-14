@@ -1,6 +1,6 @@
 {
-  "last_update": "2026-04-14 08:18:42 CET",
-  "last_update_utc": "2026-04-14 05:18:42 UTC",
+  "last_update": "2026-04-14 08:48:52 CET",
+  "last_update_utc": "2026-04-14 05:48:52 UTC",
   "bots": {
     "BTC": {
       "running": true,
@@ -18,7 +18,7 @@
       "last_log_time": "2026-04-14 01:59:47",
       "pnl_24h": {
         "realized": 47.62,
-        "unrealized": 126.19,
+        "unrealized": 121.78,
         "trades": 1,
         "wins": 1,
         "losses": 0,
@@ -27,8 +27,8 @@
             "id": "4h_0.5pct",
             "direction": "LONG",
             "entry": 73071.21,
-            "current": 74333.16,
-            "pnl": 126.19
+            "current": 74289.03,
+            "pnl": 121.78
           }
         ],
         "closed_trades": [
@@ -179,7 +179,7 @@
       },
       "pnl_24h": {
         "realized": 0,
-        "unrealized": -594.36,
+        "unrealized": -589.95,
         "trades": 0,
         "wins": 0,
         "losses": 0,
@@ -188,8 +188,8 @@
             "id": "v3_short",
             "direction": "SHORT",
             "entry": 68389.55,
-            "current": 74333.16,
-            "pnl": -594.36
+            "current": 74289.03,
+            "pnl": -589.95
           }
         ],
         "closed_trades": []
@@ -201,16 +201,16 @@
       "healthy": true,
       "bars": 2000,
       "last_timestamp": "2026-04-14 04:45:00",
-      "freshness_minutes": 33.6,
+      "freshness_minutes": 63.8,
       "issues": [
-        "Stale data: 34 min old"
+        "Stale data: 64 min old"
       ]
     },
     "QQQ": {
       "healthy": true,
       "bars": 13652,
       "last_timestamp": "2026-03-31 22:00:00",
-      "freshness_minutes": 19158.6,
+      "freshness_minutes": 19188.8,
       "issues": []
     }
   },
@@ -275,7 +275,7 @@
         "4h_0.5pct_SHORT": 4.7
       },
       "timestamp": "2026-03-31 22:00:00",
-      "note": "Compared at common timestamp: 2026-03-31 22:00:00 (parquet latest: 2026-03-31 22:00:00, fresh latest: 2026-04-14 07:05:00)",
+      "note": "Compared at common timestamp: 2026-03-31 22:00:00 (parquet latest: 2026-03-31 22:00:00, fresh latest: 2026-04-14 07:35:00)",
       "indicators": {
         "bb_pct_b": 0.4893,
         "bb_condition": true,
@@ -471,7 +471,7 @@
     "trade_count": 1
   },
   "alerts": [],
-  "check_count": 246,
+  "check_count": 247,
   "config": {
     "BTC": {
       "SL_PCT": 0.7,
