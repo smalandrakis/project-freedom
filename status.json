@@ -1,6 +1,6 @@
 {
-  "last_update": "2026-04-17 18:13:27 CET",
-  "last_update_utc": "2026-04-17 15:13:27 UTC",
+  "last_update": "2026-04-17 18:43:34 CET",
+  "last_update_utc": "2026-04-17 15:43:34 UTC",
   "bots": {
     "BTC": {
       "running": true,
@@ -155,7 +155,7 @@
       },
       "pnl_24h": {
         "realized": 0,
-        "unrealized": -946.38,
+        "unrealized": -909.21,
         "trades": 0,
         "wins": 0,
         "losses": 0,
@@ -164,8 +164,8 @@
             "id": "v3_short",
             "direction": "SHORT",
             "entry": 68389.55,
-            "current": 77853.35,
-            "pnl": -946.38
+            "current": 77481.64,
+            "pnl": -909.21
           }
         ],
         "closed_trades": []
@@ -175,16 +175,16 @@
   "parquet_health": {
     "BTC": {
       "healthy": true,
-      "bars": 2012,
-      "last_timestamp": "2026-04-17 15:10:00",
-      "freshness_minutes": 3.4,
+      "bars": 2018,
+      "last_timestamp": "2026-04-17 15:40:00",
+      "freshness_minutes": 3.5,
       "issues": []
     },
     "QQQ": {
       "healthy": true,
       "bars": 13652,
       "last_timestamp": "2026-03-31 22:00:00",
-      "freshness_minutes": 24073.4,
+      "freshness_minutes": 24103.5,
       "issues": []
     }
   },
@@ -192,34 +192,34 @@
     "BTC": {
       "match": true,
       "differences": {
-        "2h_0.5pct": 4.4,
-        "4h_0.5pct": 0.8,
-        "6h_0.5pct": 1.1,
-        "2h_0.5pct_SHORT": 2.3,
-        "4h_0.5pct_SHORT": 2.0
+        "2h_0.5pct": 4.3,
+        "4h_0.5pct": 0.9,
+        "6h_0.5pct": 1.4,
+        "2h_0.5pct_SHORT": 4.0,
+        "4h_0.5pct_SHORT": 1.5
       },
       "parquet_probs": {
-        "2h_0.5pct": 14.8,
-        "4h_0.5pct": 8.3,
-        "6h_0.5pct": 7.3,
-        "2h_0.5pct_SHORT": 66.7,
-        "4h_0.5pct_SHORT": 76.4
+        "2h_0.5pct": 21.5,
+        "4h_0.5pct": 9.7,
+        "6h_0.5pct": 8.1,
+        "2h_0.5pct_SHORT": 51.2,
+        "4h_0.5pct_SHORT": 73.6
       },
       "fresh_probs": {
-        "2h_0.5pct": 10.4,
-        "4h_0.5pct": 7.5,
-        "6h_0.5pct": 6.2,
-        "2h_0.5pct_SHORT": 69.0,
-        "4h_0.5pct_SHORT": 78.4
+        "2h_0.5pct": 25.8,
+        "4h_0.5pct": 10.6,
+        "6h_0.5pct": 6.7,
+        "2h_0.5pct_SHORT": 55.2,
+        "4h_0.5pct_SHORT": 72.1
       },
-      "timestamp": "2026-04-17 15:10:00",
+      "timestamp": "2026-04-17 15:40:00",
       "indicators": {
-        "bb_pct_b": 0.7108,
-        "macd": 384.92,
-        "macd_signal": 413.13,
-        "macd_hist": -28.21,
-        "macd_hist_prev": -17.6266,
-        "roc_12": 0.93,
+        "bb_pct_b": 0.5016,
+        "macd": 260.62,
+        "macd_signal": 333.85,
+        "macd_hist": -73.2335,
+        "macd_hist_prev": -66.9459,
+        "roc_12": -0.37,
         "roc_threshold": 0.4,
         "long_condition": false,
         "short_condition": false,
@@ -249,7 +249,7 @@
         "4h_0.5pct_SHORT": 6.8
       },
       "timestamp": "2026-03-31 21:55:00",
-      "note": "Compared at common timestamp: 2026-03-31 21:55:00 (parquet latest: 2026-03-31 22:00:00, fresh latest: 2026-04-17 17:10:00)",
+      "note": "Compared at common timestamp: 2026-03-31 21:55:00 (parquet latest: 2026-03-31 22:00:00, fresh latest: 2026-04-17 17:40:00)",
       "indicators": {
         "bb_pct_b": 0.4893,
         "bb_condition": true,
@@ -437,7 +437,7 @@
     "error": "HTTPSConnectionPool(host='api.binance.com', port=443): Max retries exceeded with url: /api/v3/klines?symbol=BTCUSDT&interval=5m&limit=1000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x131a5c370>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))"
   },
   "alerts": [],
-  "check_count": 387,
+  "check_count": 388,
   "config": {
     "BTC": {
       "SL_PCT": 0.7,
