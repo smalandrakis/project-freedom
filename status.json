@@ -1,6 +1,6 @@
 {
-  "last_update": "2026-04-20 14:29:09 CET",
-  "last_update_utc": "2026-04-20 11:29:09 UTC",
+  "last_update": "2026-04-20 15:26:19 CET",
+  "last_update_utc": "2026-04-20 12:26:19 UTC",
   "bots": {
     "BTC": {
       "running": true,
@@ -155,19 +155,11 @@
       },
       "pnl_24h": {
         "realized": 0,
-        "unrealized": -680.7,
+        "unrealized": 0,
         "trades": 0,
         "wins": 0,
         "losses": 0,
-        "open_positions": [
-          {
-            "id": "v3_short",
-            "direction": "SHORT",
-            "entry": 68389.55,
-            "current": 75196.53,
-            "pnl": -680.7
-          }
-        ],
+        "open_positions": [],
         "closed_trades": []
       }
     }
@@ -177,16 +169,16 @@
       "healthy": true,
       "bars": 2010,
       "last_timestamp": "2026-04-20 10:30:00",
-      "freshness_minutes": 58.9,
+      "freshness_minutes": 116.2,
       "issues": [
-        "Stale data: 59 min old"
+        "Stale data: 116 min old"
       ]
     },
     "QQQ": {
       "healthy": true,
       "bars": 13652,
       "last_timestamp": "2026-03-31 22:00:00",
-      "freshness_minutes": 28168.9,
+      "freshness_minutes": 28226.2,
       "issues": []
     }
   },
@@ -205,40 +197,22 @@
       "timestamp": "2026-04-20 10:30:00",
       "indicators": {},
       "indicator_signal": false,
-      "error": "('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))"
+      "error": "HTTPSConnectionPool(host='api.binance.com', port=443): Max retries exceeded with url: /api/v3/klines?symbol=BTCUSDT&interval=5m&limit=1000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1321ac8b0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))"
     },
     "MNQ": {
       "match": true,
-      "differences": {
-        "2h_0.5pct": 0.0,
-        "4h_0.5pct": 3.5,
-        "2h_0.5pct_SHORT": 0.6,
-        "4h_0.5pct_SHORT": 0.0
-      },
+      "differences": {},
       "parquet_probs": {
         "2h_0.5pct": 44.9,
         "4h_0.5pct": 53.5,
         "2h_0.5pct_SHORT": 13.6,
         "4h_0.5pct_SHORT": 4.7
       },
-      "fresh_probs": {
-        "2h_0.5pct": 44.9,
-        "4h_0.5pct": 50.0,
-        "2h_0.5pct_SHORT": 14.2,
-        "4h_0.5pct_SHORT": 4.7
-      },
+      "fresh_probs": {},
       "timestamp": "2026-03-31 22:00:00",
-      "note": "Compared at common timestamp: 2026-03-31 22:00:00 (parquet latest: 2026-03-31 22:00:00, fresh latest: 2026-04-20 13:15:00)",
-      "indicators": {
-        "bb_pct_b": 0.4893,
-        "bb_condition": true,
-        "roc_12": 0.02,
-        "macd_hist": -0.123,
-        "macd_hist_prev": -0.0452,
-        "macd_hist_increasing": false,
-        "macd_hist_decreasing": true
-      },
-      "indicator_signal": true
+      "note": "Could not download fresh NQ=F data",
+      "indicators": {},
+      "indicator_signal": false
     },
     "SPY": {
       "match": true,
@@ -412,10 +386,11 @@
     "actual_trades": [],
     "matched_hours": 0,
     "missed_hours": 19,
-    "trade_count": 0
+    "trade_count": 0,
+    "error": "HTTPSConnectionPool(host='api.binance.com', port=443): Max retries exceeded with url: /api/v3/klines?symbol=BTCUSDT&interval=5m&limit=1000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x131d8ca00>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))"
   },
   "alerts": [],
-  "check_count": 521,
+  "check_count": 522,
   "config": {
     "BTC": {
       "SL_PCT": 0.7,
