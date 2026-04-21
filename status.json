@@ -1,10 +1,10 @@
 {
-  "last_update": "2026-04-21 17:44:23 CET",
-  "last_update_utc": "2026-04-21 14:44:23 UTC",
+  "last_update": "2026-04-21 18:53:02 CET",
+  "last_update_utc": "2026-04-21 15:53:02 UTC",
   "bots": {
     "BTC": {
       "running": true,
-      "pid": "48667",
+      "pid": "50713",
       "probabilities": {},
       "positions": 0,
       "max_positions": 4,
@@ -169,16 +169,16 @@
       "healthy": true,
       "bars": 2001,
       "last_timestamp": "2026-04-21 08:35:00",
-      "freshness_minutes": 369.4,
+      "freshness_minutes": 438.0,
       "issues": [
-        "Stale data: 369 min old"
+        "Stale data: 438 min old"
       ]
     },
     "QQQ": {
       "healthy": true,
       "bars": 13652,
       "last_timestamp": "2026-03-31 22:00:00",
-      "freshness_minutes": 29804.4,
+      "freshness_minutes": 29873.0,
       "issues": []
     }
   },
@@ -197,7 +197,7 @@
       "timestamp": "2026-04-21 08:35:00",
       "indicators": {},
       "indicator_signal": false,
-      "error": "HTTPSConnectionPool(host='api.binance.com', port=443): Max retries exceeded with url: /api/v3/klines?symbol=BTCUSDT&interval=5m&limit=1000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1321f3ca0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))"
+      "error": "HTTPSConnectionPool(host='api.binance.com', port=443): Max retries exceeded with url: /api/v3/klines?symbol=BTCUSDT&interval=5m&limit=1000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x13220fcd0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))"
     },
     "MNQ": {
       "match": true,
@@ -390,7 +390,7 @@
     "error": "HTTPSConnectionPool(host='api.binance.com', port=443): Max retries exceeded with url: /api/v3/klines?symbol=BTCUSDT&interval=5m&limit=1000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x132293f70>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))"
   },
   "alerts": [],
-  "check_count": 566,
+  "check_count": 567,
   "config": {
     "BTC": {
       "SL_PCT": 0.7,
