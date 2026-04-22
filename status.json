@@ -1,10 +1,10 @@
 {
-  "last_update": "2026-04-22 11:03:56 CET",
-  "last_update_utc": "2026-04-22 09:03:56 UTC",
+  "last_update": "2026-04-22 11:34:03 CET",
+  "last_update_utc": "2026-04-22 09:34:03 UTC",
   "bots": {
     "BTC": {
       "running": true,
-      "pid": "17262",
+      "pid": "18798",
       "probabilities": {},
       "positions": 0,
       "max_positions": 4,
@@ -155,7 +155,7 @@
       },
       "pnl_24h": {
         "realized": 0,
-        "unrealized": -959.89,
+        "unrealized": -975.3,
         "trades": 0,
         "wins": 0,
         "losses": 0,
@@ -164,8 +164,8 @@
             "id": "v3_short",
             "direction": "SHORT",
             "entry": 68389.55,
-            "current": 77988.44,
-            "pnl": -959.89
+            "current": 78142.56,
+            "pnl": -975.3
           }
         ],
         "closed_trades": []
@@ -176,15 +176,15 @@
     "BTC": {
       "healthy": true,
       "bars": 2006,
-      "last_timestamp": "2026-04-22 09:00:00",
-      "freshness_minutes": 3.8,
+      "last_timestamp": "2026-04-22 09:30:00",
+      "freshness_minutes": 4.0,
       "issues": []
     },
     "QQQ": {
       "healthy": true,
       "bars": 13652,
       "last_timestamp": "2026-03-31 22:00:00",
-      "freshness_minutes": 30903.8,
+      "freshness_minutes": 30934.0,
       "issues": []
     }
   },
@@ -192,42 +192,41 @@
     "BTC": {
       "match": true,
       "differences": {
-        "2h_0.5pct": 0.3,
-        "4h_0.5pct": 0.0,
-        "6h_0.5pct": 0.7,
-        "2h_0.5pct_SHORT": 4.4,
+        "2h_0.5pct": 2.5,
+        "4h_0.5pct": 1.3,
+        "6h_0.5pct": 0.3,
+        "2h_0.5pct_SHORT": 0.4,
         "4h_0.5pct_SHORT": 0.8
       },
       "parquet_probs": {
-        "2h_0.5pct": 52.5,
-        "4h_0.5pct": 51.8,
-        "6h_0.5pct": 7.0,
-        "2h_0.5pct_SHORT": 32.6,
-        "4h_0.5pct_SHORT": 34.0
+        "2h_0.5pct": 48.2,
+        "4h_0.5pct": 71.7,
+        "6h_0.5pct": 13.1,
+        "2h_0.5pct_SHORT": 25.4,
+        "4h_0.5pct_SHORT": 26.4
       },
       "fresh_probs": {
-        "2h_0.5pct": 52.8,
-        "4h_0.5pct": 51.8,
-        "6h_0.5pct": 7.7,
-        "2h_0.5pct_SHORT": 28.2,
-        "4h_0.5pct_SHORT": 33.2
+        "2h_0.5pct": 50.7,
+        "4h_0.5pct": 70.4,
+        "6h_0.5pct": 12.8,
+        "2h_0.5pct_SHORT": 25.8,
+        "4h_0.5pct_SHORT": 27.2
       },
-      "timestamp": "2026-04-22 09:00:00",
+      "timestamp": "2026-04-22 09:30:00",
       "indicators": {
-        "bb_pct_b": 0.4416,
-        "macd": 15.01,
-        "macd_signal": 25.46,
-        "macd_hist": -10.4452,
-        "macd_hist_prev": -10.2372,
-        "roc_12": -0.09,
+        "bb_pct_b": 0.8773,
+        "macd": 32.29,
+        "macd_signal": 23.86,
+        "macd_hist": 8.4302,
+        "macd_hist_prev": 4.6088,
+        "roc_12": 0.22,
         "roc_threshold": 0.4,
         "long_condition": false,
         "short_condition": false,
-        "macd_hist_increasing": false,
-        "macd_hist_decreasing": true
+        "macd_hist_increasing": true,
+        "macd_hist_decreasing": false
       },
-      "indicator_signal": false,
-      "auto_fixed": true
+      "indicator_signal": false
     },
     "MNQ": {
       "match": true,
@@ -250,7 +249,7 @@
         "4h_0.5pct_SHORT": 4.7
       },
       "timestamp": "2026-03-31 22:00:00",
-      "note": "Compared at common timestamp: 2026-03-31 22:00:00 (parquet latest: 2026-03-31 22:00:00, fresh latest: 2026-04-22 10:50:00)",
+      "note": "Compared at common timestamp: 2026-03-31 22:00:00 (parquet latest: 2026-03-31 22:00:00, fresh latest: 2026-04-22 11:20:00)",
       "indicators": {
         "bb_pct_b": 0.4893,
         "bb_condition": true,
@@ -437,14 +436,8 @@
     "trade_count": 0,
     "error": "HTTPSConnectionPool(host='api.binance.com', port=443): Max retries exceeded with url: /api/v3/klines?symbol=BTCUSDT&interval=5m&limit=1000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x132276160>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))"
   },
-  "alerts": [
-    {
-      "time": "2026-04-22T09:03:50.927794",
-      "type": "info",
-      "message": "BTC parquet refreshed with 2000 bars"
-    }
-  ],
-  "check_count": 601,
+  "alerts": [],
+  "check_count": 602,
   "config": {
     "BTC": {
       "SL_PCT": 0.7,
